@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsteroidsForm", "AsteroidsForm\AsteroidsForm.csproj", "{CBEA301F-1B47-4939-85A0-3DBBE29FEBF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsteroidsLibrary", "AsteroidsLibrary\AsteroidsLibrary.csproj", "{39214ED7-25DF-4C20-9E6D-8D67650F3EE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBEA301F-1B47-4939-85A0-3DBBE29FEBF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBEA301F-1B47-4939-85A0-3DBBE29FEBF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBEA301F-1B47-4939-85A0-3DBBE29FEBF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBEA301F-1B47-4939-85A0-3DBBE29FEBF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39214ED7-25DF-4C20-9E6D-8D67650F3EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39214ED7-25DF-4C20-9E6D-8D67650F3EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39214ED7-25DF-4C20-9E6D-8D67650F3EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39214ED7-25DF-4C20-9E6D-8D67650F3EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C7B2509-1895-43DC-B76A-98870F0645DB}
+	EndGlobalSection
+EndGlobal

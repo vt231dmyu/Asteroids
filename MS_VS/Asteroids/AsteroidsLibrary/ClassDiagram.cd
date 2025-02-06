@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AsteroidsLibrary.Asteroid">
+    <Position X="2" Y="4.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAFCQDADJESggBQEoIREAAAAIBzgAAQAgRAAWQAFQg=</HashCode>
+      <FileName>Asteroid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsLibrary.DoubleBufferedPanel">
+    <Position X="13.25" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACAAAAQAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DoubleBufferedPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsLibrary.GameEngine">
+    <Position X="16.25" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAwUgwgAAIAAwghAAAhiAgQIQABBEIEDAAChgQAAIIE=</HashCode>
+      <FileName>GameEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsLibrary.GameLeaderboard">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>GameLeaderboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsLibrary.GameObject">
+    <Position X="4.5" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAMAAAACAAAAgAgAAAAIAACACAAAAAAAEQAAAFEAAA=</HashCode>
+      <FileName>GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsLibrary.GraphicsCanvas" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>GraphicsCanvas.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AsteroidsLibrary.HealingAsteroid">
+    <Position X="2" Y="8.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>HealingAsteroid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsLibrary.LaserGun">
+    <Position X="4.5" Y="7.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAggAAAAAAACgAAAEAAAAAAAAACCAAAA=</HashCode>
+      <FileName>LaserGun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsLibrary.Laser">
+    <Position X="4.5" Y="4.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgCAAAAAAAgCAAAYAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Laser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsLibrary.LeaderboardEntry">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAEAAAAQAAAAACAAAAAAAAAAAAQA=</HashCode>
+      <FileName>LeaderboardEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsLibrary.MyTextRenderer" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="2.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEQgAAAAIBAAAAAgIAAAACAAAAAAgAAAIA=</HashCode>
+      <FileName>MyTextRenderer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AsteroidsLibrary.ScorePanel">
+    <Position X="9.75" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AgABAAAQAECAAgggAAAIAACCAAaACFAGAAoQAIKAAQI=</HashCode>
+      <FileName>ScorePanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AsteroidsLibrary.Ship">
+    <Position X="6.75" Y="4.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAACIAAABCBxgBQEBIBgBgCGCkMAYAoBECUAAFS0Ag=</HashCode>
+      <FileName>Ship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="AsteroidsLibrary.ICanvas">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ICanvas.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="AsteroidsLibrary.SIZE_OF_ASTEROID">
+    <Position X="6.75" Y="8.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAAAAAAAQAA=</HashCode>
+      <FileName>SIZE_OF_ASTEROID.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
