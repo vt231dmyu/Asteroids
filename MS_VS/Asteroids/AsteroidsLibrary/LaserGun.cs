@@ -42,29 +42,12 @@ namespace AsteroidsLibrary
         {
             foreach (Laser l in lasersList)
             {
-                double sa = Math.Sin(l.Angle - (Math.PI / 2));
-                double ca = Math.Cos(l.Angle - (Math.PI / 2));
-                Brush brushLime = Brushes.Lime;
-                
-                position = new Point(l.Position.X + (int)(ca * LASER_SPEED), l.Position.Y + (int)(sa * LASER_SPEED));
-
-                BeyondMapEdges();
-
-                graphics.FillEllipse(brushLime, position.X - (int)Radius, position.Y, (int)Radius * 2, (int)Radius * 2);
-
-                l.Position = position;
+                l.Draw(graphics);
                 l.Decay += System.DateTime.Now.Ticks - lastTick;
             }
             lastTick = System.DateTime.Now.Ticks;
 
-            if (lasersList.Count > 0)
-            {
-                for (int nCur = lasersList.Count - 1; nCur >= 0; nCur--)
-                {
-                    if ((lasersList[nCur].Decay / 10000000) > DECAY_TIME)
-                        lasersList.RemoveAt(nCur);
-                }
-            }
+            lasersList.RemoveAll(l => (l.Decay / 10000000) > DECAY_TIME);
         }
 
         public bool Fire(Point objPosition, double objAngle)
