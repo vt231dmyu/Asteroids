@@ -37,15 +37,17 @@ namespace AsteroidsLibrary
         }
         protected Point BeyondMapEdges()
         {
-            if (position.X < 0)
-                position = new Point(canvas.Width + position.X, position.Y);
-            else if (position.X > canvas.Width)
-                position = new Point(position.X - canvas.Width, position.Y);
-            if (position.Y < 0)
-                position = new Point(position.X, canvas.Height + position.Y);
-            else if (position.Y > canvas.Height)
-                position = new Point(position.X, position.Y - canvas.Height);
+            position = WrapAround(position);
             return position;
+        }
+        private Point WrapAround(Point pos)
+        {
+            int x = pos.X, y = pos.Y;
+
+            x = (x < 0) ? x + canvas.Width : (x > canvas.Width) ? x - canvas.Width : x;
+            y = (y < 0) ? y + canvas.Height : (y > canvas.Height) ? y - canvas.Height : y;
+
+            return new Point(x, y);
         }
     }
 }
