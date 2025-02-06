@@ -138,89 +138,107 @@ namespace AsteroidsLibrary
 
         private void DrawShip(Graphics graphics)
         {
-            double sa = Math.Sin(accelerationAngle) * scalingFactor;
-            double ca = Math.Cos(accelerationAngle) * scalingFactor;
-
-            graphics.DrawLine(penWhite,
-                                new Point(position.X + (int)(sa * 17),
-                                          position.Y - (int)(ca * 17)),
-                                new Point(position.X + (int)(ca * 10) - (int)(sa * 17),
-                                          position.Y + (int)(ca * 17) + (int)(sa * 10)));
-            graphics.DrawLine(penWhite,
-                                new Point(position.X + (int)(sa * -10),
-                                          position.Y - (int)(ca * -10)),
-                                new Point(position.X + (int)(ca * 10) - (int)(sa * 17),
-                                          position.Y + (int)(ca * 17) + (int)(sa * 10)));
-
-            graphics.DrawLine(penWhite,
-                                new Point(position.X - (int)(ca * 10) - (int)(sa * 17),
-                                          position.Y + (int)(ca * 17) - (int)(sa * 10)),
-                                new Point(position.X + (int)(sa * -10),
-                                          position.Y - (int)(ca * -10)));
-            graphics.DrawLine(penWhite,
-                                new Point(position.X + (int)(sa * 17),
-                                          position.Y - (int)(ca * 17)),
-                                new Point(position.X - (int)(ca * 10) - (int)(sa * 17),
-                                          position.Y + (int)(ca * 17) - (int)(sa * 10)));
+            DrawShipBody(graphics);
 
             if (isAccelerating)
             {
-                Point[] pointsRed = new Point[]
-                {
-                    new Point(position.X + (int)(sa * -12), position.Y - (int)(ca * -12)),
-                    new Point(position.X - (int)(ca * 4) - (int)(sa * 14), position.Y + (int)(ca * 14) - (int)(sa * 4)),
-                    new Point(position.X - (int)(sa * 28), position.Y + (int)(ca * 28)),
-                    new Point(position.X + (int)(ca * 4) - (int)(sa * 14), position.Y + (int)(ca * 14) + (int)(sa * 4))
-                };
-                graphics.FillPolygon(brushRed, pointsRed);
-
-                Point[] pointsYellow = new Point[]
-                {
-                    new Point(position.X + (int)(sa * -12), position.Y - (int)(ca * -12)),
-                    new Point(position.X - (int)(ca * 4) - (int)(sa * 14), position.Y + (int)(ca * 14) - (int)(sa * 4)),
-                    new Point(position.X - (int)(sa * 20), position.Y + (int)(ca * 20)),
-                    new Point(position.X + (int)(ca * 4) - (int)(sa * 14), position.Y + (int)(ca * 14) + (int)(sa * 4))
-                };
-                graphics.FillPolygon(brushYellow, pointsYellow);
+                DrawThrusterFlames(graphics);
             }
 
+            UpdateVelocity();
+
+            UpdatePosition();
+
+            BeyondMapEdges();
+        }
+
+        private void DrawShipBody(Graphics graphics)
+        {
+            double sa = Math.Sin(accelerationAngle) * scalingFactor;
+            double ca = Math.Cos(accelerationAngle) * scalingFactor;
+
+            Point[] shipLines = new Point[]
+            {
+                new Point(position.X + (int)(sa * 17), position.Y - (int)(ca * 17)),
+                new Point(position.X + (int)(ca * 10) - (int)(sa * 17), position.Y + (int)(ca * 17) + (int)(sa * 10)),
+
+                new Point(position.X + (int)(sa * -10), position.Y - (int)(ca * -10)),
+                new Point(position.X + (int)(ca * 10) - (int)(sa * 17), position.Y + (int)(ca * 17) + (int)(sa * 10)),
+
+                new Point(position.X - (int)(ca * 10) - (int)(sa * 17), position.Y + (int)(ca * 17) - (int)(sa * 10)),
+                new Point(position.X + (int)(sa * -10), position.Y - (int)(ca * -10)),
+
+                new Point(position.X + (int)(sa * 17), position.Y - (int)(ca * 17)),
+                new Point(position.X - (int)(ca * 10) - (int)(sa * 17), position.Y + (int)(ca * 17) - (int)(sa * 10))
+            };
+
+            for (int i = 0; i < shipLines.Length; i += 2)
+            {
+                graphics.DrawLine(penWhite, shipLines[i], shipLines[i + 1]);
+            }
+        }
+
+        private void DrawThrusterFlames(Graphics graphics)
+        {
+            Point[] pointsRed = new Point[]
+            {
+                new Point(position.X + (int)(Math.Sin(accelerationAngle) * -12), position.Y - (int)(Math.Cos(accelerationAngle) * -12)),
+                new Point(position.X - (int)(Math.Cos(accelerationAngle) * 4) - (int)(Math.Sin(accelerationAngle) * 14), position.Y + (int)(Math.Cos(accelerationAngle) * 14) - (int)(Math.Sin(accelerationAngle) * 4)),
+                new Point(position.X - (int)(Math.Sin(accelerationAngle) * 28), position.Y + (int)(Math.Cos(accelerationAngle) * 28)),
+                new Point(position.X + (int)(Math.Cos(accelerationAngle) * 4) - (int)(Math.Sin(accelerationAngle) * 14), position.Y + (int)(Math.Cos(accelerationAngle) * 14) + (int)(Math.Sin(accelerationAngle) * 4))
+            };
+            graphics.FillPolygon(brushRed, pointsRed);
+
+            Point[] pointsYellow = new Point[]
+            {
+                new Point(position.X + (int)(Math.Sin(accelerationAngle) * -12), position.Y - (int)(Math.Cos(accelerationAngle) * -12)),
+                new Point(position.X - (int)(Math.Cos(accelerationAngle) * 4) - (int)(Math.Sin(accelerationAngle) * 14), position.Y + (int)(Math.Cos(accelerationAngle) * 14) - (int)(Math.Sin(accelerationAngle) * 4)),
+                new Point(position.X - (int)(Math.Sin(accelerationAngle) * 20), position.Y + (int)(Math.Cos(accelerationAngle) * 20)),
+                new Point(position.X + (int)(Math.Cos(accelerationAngle) * 4) - (int)(Math.Sin(accelerationAngle) * 14), position.Y + (int)(Math.Cos(accelerationAngle) * 14) + (int)(Math.Sin(accelerationAngle) * 4))
+            };
+            graphics.FillPolygon(brushYellow, pointsYellow);
+        }
+
+        private void UpdateVelocity()
+        {
             if (!isAccelerating)
             {
-                if (velocity > 0)
-                    velocity -= DECELERATION;
-                else
-                    velocity = 0;
-            }
-            else if (velocity == 0)
-            {
-                velocity += ACCELERATION;
-                angle = accelerationAngle;
-            }
-            else if (((velocity + ACCELERATION) < MAX_VELOCITY) && (angle == accelerationAngle))
-            {
-                velocity += ACCELERATION;
+                velocity = Math.Max(velocity - DECELERATION, 0);
             }
             else
             {
-                double velocityFactorCurrentX = velocity * Math.Cos(angle);
-                double velocityFactorCurrentY = velocity * Math.Sin(angle);
+                if (velocity == 0)
+                {
+                    velocity = ACCELERATION;
+                    angle = accelerationAngle;
+                }
+                else if (velocity + ACCELERATION < MAX_VELOCITY && angle == accelerationAngle)
+                {
+                    velocity += ACCELERATION;
+                }
+                else
+                {
+                    double velocityX = velocity * Math.Cos(angle);
+                    double velocityY = velocity * Math.Sin(angle);
+                    double accelerationX = ACCELERATION * Math.Cos(accelerationAngle);
+                    double accelerationY = ACCELERATION * Math.Sin(accelerationAngle);
 
-                double velocityFactorNewX = ACCELERATION * Math.Cos(accelerationAngle);
-                double velocityFactorNewY = ACCELERATION * Math.Sin(accelerationAngle);
+                    double newVelocity = Math.Sqrt(Math.Pow(velocityX + accelerationX, 2) + Math.Pow(velocityY + accelerationY, 2));
 
-                if ((Math.Sqrt(Math.Pow(velocityFactorCurrentX + velocityFactorNewX, 2) + Math.Pow(velocityFactorCurrentY + velocityFactorNewY, 2)) < MAX_VELOCITY))
-                    velocity = Math.Sqrt(Math.Pow(velocityFactorCurrentX + velocityFactorNewX, 2) + Math.Pow(velocityFactorCurrentY + velocityFactorNewY, 2));
+                    if (newVelocity < MAX_VELOCITY)
+                        velocity = newVelocity;
 
-                angle = Math.Atan2((velocityFactorCurrentY + velocityFactorNewY), (velocityFactorCurrentX + velocityFactorNewX));
+                    angle = Math.Atan2(velocityY + accelerationY, velocityX + accelerationX);
+                }
             }
+        }
 
-            sa = Math.Sin(angle);
-            ca = Math.Cos(angle);
+        private void UpdatePosition()
+        {
+            double sa = Math.Sin(angle);
+            double ca = Math.Cos(angle);
 
-            position = new Point(position.X + (int)(sa * velocity * 16),
-                                 position.Y - (int)(ca * velocity * 16));
-
-            BeyondMapEdges();
+            position = new Point(position.X + (int)(sa * velocity * 16), position.Y - (int)(ca * velocity * 16));
         }
 
         private void DrawDestroyedShip(Graphics graphics)
